@@ -3,10 +3,11 @@ name: Terraform Scan with TerraScan
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch (you can change it to any branch you prefer)
+      - '*'  # Trigger for any push to any branch
+ 
   pull_request:
     branches:
-      - main  # Trigger on pull request to the main branch
+      - '*'  # # Trigger on pull request to the main branch
 
 jobs:
   terrascan:
