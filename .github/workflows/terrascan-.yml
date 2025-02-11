@@ -16,11 +16,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install
-        run: uname -a
+     
       - name: Install TerraScan v1.19.9
         run: |
-          curl -sSL https://github.com/tenable/terrascan/releases/download/v1.19.9/terrascan_1.19.9_Linux_arm64.tar.gz -o terrascan.tar.gz
+          curl -sSL https://github.com/tenable/terrascan/releases/download/v1.19.9/terrascan_1.19.9_Linux_x86_64.tar.gz -o terrascan.tar.gz
           tar -xvzf terrascan.tar.gz
           sudo mv terrascan /usr/local/bin/
 
