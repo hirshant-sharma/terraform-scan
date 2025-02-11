@@ -28,7 +28,7 @@ jobs:
           terrascan scan -t aws -o human -d . > terrascan_report.human
 
       - name: Upload TerraScan Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: terrascan-report
           path: terrascan_report.human
