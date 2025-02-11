@@ -7,7 +7,7 @@ on:
  
   pull_request:
     branches:
-      - '*'  # # Trigger on pull request to the main branch
+      - '*'  # # Trigger on pull request to the main branch 
 
 jobs:
   terrascan:
