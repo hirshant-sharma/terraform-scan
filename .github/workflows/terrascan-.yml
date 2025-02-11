@@ -35,7 +35,7 @@ jobs:
         run: terraform init
         
       - name: check os
-        run: uname -a && ls-al
+        run: uname -a && ls -al
         
       - name: Install TerraScan v1.19.9
         run: |
