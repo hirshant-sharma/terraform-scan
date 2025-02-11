@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Checkov scan
         run: |
-          checkov -d . --output junitxml > checkov_output.xml
+          checkov -d . --output junitxml --download-external-modules > checkov_output.xml
 
       - name: Generate Allure Report
         run: |
