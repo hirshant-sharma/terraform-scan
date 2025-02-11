@@ -1,0 +1,37 @@
+name: Terraform Scan with TerraScan
+
+on:
+  push:
+    branches:
+      - '*'  # Trigger for any push to any branch
+ 
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  terrascan:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up TerraScan
+        uses: accurics/terrascan-action@v1.1  # Uses the TerraScan GitHub Action
+
+      - name: Install TerraScan v1.19.9
+        run: |
+          curl -sSL https://github.com/accurics/terrascan/releases/download/v1.19.9/terrascan_1.19.9_linux_amd64.tar.gz -o terrascan.tar.gz
+          tar -xvzf terrascan.tar.gz
+          sudo mv terrascan /usr/local/bin/
+
+      - name: Run TerraScan scan
+        run: |
+          terrascan scan -t aws -o human -d . > terrascan_report.human
+
+      - name: Upload TerraScan Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: terrascan-report
+          path: terrascan_report.human
