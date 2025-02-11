@@ -30,8 +30,8 @@ jobs:
 
       - name: Run Checkov scan
         run: |
-          checkov -d . --output junitxml --download-external-modules > checkov_output.xml
-
+          checkov -d . --output junitxml --download-external-modules . > checkov_output.xml
+          
       - name: Generate Allure Report
         run: |
           curl -sSL https://github.com/allure-framework/allure2/releases/download/2.13.9/allure-2.13.9.zip -o allure.zip
